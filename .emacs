@@ -46,10 +46,11 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (company-ghc ac-haskell-process haskell-mode zenburn-theme markdown-mode multiple-cursors idris-mode fill-column-indicator auctex)))
+    (magit company-ghc ac-haskell-process haskell-mode zenburn-theme markdown-mode multiple-cursors idris-mode fill-column-indicator auctex)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
+ '(magit-diff-refine-hunk t)
  '(tramp-auto-save-directory "~/.save/"))
 
 
@@ -69,6 +70,7 @@
 				    'haskell-process-load-or-reload)))
 
 ;; Keyboard shortcuts
+(global-set-key (kbd "C-M-S-g" ) 'magit-status)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x <up>") 'windmove-up)
 (global-set-key (kbd "C-x <down>") 'windmove-down)
