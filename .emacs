@@ -51,6 +51,8 @@
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(magit-diff-refine-hunk t)
+ '(backup-by-copying t)
+ '(backup-directory-alist (quote (("" . "~/.save/"))))
  '(tramp-auto-save-directory "~/.save/"))
 
 
