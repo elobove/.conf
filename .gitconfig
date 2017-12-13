@@ -1,0 +1,10 @@
+[user]
+	email = elilobo.v@gmail.com
+	name  = elobove
+[push]
+	default = simple
+[alias]
+	co  = checkout
+	ci  = commit
+	cim = commit -m
+	st  = status
