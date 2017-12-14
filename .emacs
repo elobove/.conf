@@ -134,8 +134,7 @@
 ;; Font size (11pt)
 (set-face-attribute 'default nil :height 110)
 
-;; fci for all files
-(add-hook 'after-change-major-mode-hook 'fci-mode)
+;; fci color bar
 (setq fci-rule-color "#996060")
 
 ;; UTF-8 as default encoding
