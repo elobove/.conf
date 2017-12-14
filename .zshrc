@@ -96,10 +96,16 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/home/elilob/.cabal/bin:$PATH
 alias e='XMODIFIERS=\" emacs25'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# Even better ls
+run_ls() {
+    LS_COLORS=$(ls_colors_generator) ls-i --color=auto -w $(tput cols) "$@"
+}
 
+# some more ls aliases
+alias ls="run_ls"
+alias ll="run_ls -lh"
+alias l="run_ls -CF"
+
+alias ag="ag --pager less"
 
 . /usr/share/powerline/bindings/zsh/powerline.zsh
