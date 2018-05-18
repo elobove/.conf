@@ -165,7 +165,7 @@
 ;; latex-hook
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
-	    (flyspell-mode)
+	    (general-hook)
 	    (tex-pdf-mode)))
 
 ;; Compile documents to PDF by default
@@ -196,3 +196,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;;;;;;;;;;;;;;;
+;; Utilities ;;
+;;;;;;;;;;;;;;;
+
+;;Auto reload buffer
+(defun auto-revert-buffer ()
+    "Revert buffer."
+    (interactive)
+    (revert-buffer))
