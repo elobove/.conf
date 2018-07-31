@@ -131,8 +131,8 @@
     ("zenburn-magenta"  . "#E090C7")))
 (load-theme 'zenburn t)
 
-;; Font size (11pt)
-(set-face-attribute 'default nil :height 110)
+;; Font size (12pt)
+(set-face-attribute 'default nil :height 120)
 
 ;; fci color bar
 (setq fci-rule-color "#996060")

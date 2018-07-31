@@ -4,7 +4,8 @@
 [push]
 	default = simple
 [alias]
-	co  = checkout
-	ci  = commit
-	cim = commit -m
-	st  = status
+	co    = checkout
+	ci    = commit
+	cim   = commit -m
+	st    = status
+	fpush = push --force-with-lease

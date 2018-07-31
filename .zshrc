@@ -94,6 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH=/home/elilob/.cabal/bin:$PATH
+export PATH=/home/elilob/Documents/MATLAB/mosek/8/tools/platform/linux64x86/bin:$PATH
 alias e='XMODIFIERS=\" emacs25'
 
 # Even better ls
