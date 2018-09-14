@@ -180,6 +180,9 @@
 	    (haskell-indent-mode)
 	    (flyspell-prog-mode)))
 
+;; stack's repl
+;; (setq haskell-process-type 'stack-ghci)
+
 ;; agda-hook
 (add-hook 'agda-mode-hook
 	  (lambda ()
