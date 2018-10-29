@@ -117,5 +117,5 @@ if ! shopt -oq posix; then
 fi
 
 export PS1='\u@\H:\W$ '
-export PATH=/home/elilob/.cabal/bin:$PATH
+export PATH=$HOME/.cabal/bin:$PATH
 alias e='XMODIFIERS=\" emacs25'
