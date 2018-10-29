@@ -6,6 +6,12 @@ sudo apt-get install git curl zsh tree python-pip powerline
 
 sudo pip install powerline-gitstatus
 
+# oh-myzsh
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+# latex
+sudo apt-get install texlive-full
+
 # even better ls
 
 wget http://raw.githubusercontent.com/illinoisjackson/even-better-ls/master/ls_colors_generator.py
@@ -22,17 +28,83 @@ cd ..
 make
 cd src
 make ls
-cp ls ~/.local/bin/ls-i
+cp ls $HOME/.local/bin/ls-i
 cd ../../
 
 # fonts
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v1.2.0/DejaVuSansMono.zip
-mkdir -p ~/.local/share/fonts
-cp DejaVuSansMono.zip ~/.local/share/fonts/
-cd ~/.local/share/fonts
+mkdir -p $HOME/.local/share/fonts
+cp DejaVuSansMono.zip $HOME/.local/share/fonts/
+cd $HOME/.local/share/fonts
 unzip DejaVuSansMono.zip
 fc-cache -f .
 # Set font in terminal to something with nerd and powerline in it ;)
 
 cd -
+
+# Creating symbolic links to conf files
+cd
+rm .bashrc
+ln -s $HOME/.conf/.bashrc
+ln -s $HOME/.conf/.emacs
+ln -s $HOME/.conf/.zshrc
+ln -s $HOME/.conf/.gitconfig
+
+# Installing spotify
+cd $HOME
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update
+sudo apt-get install spotify-client
+
+# Installing ghc
+# sudo apt-get install ghc
+wget https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-x86_64-deb9-linux.tar.xz
+cd ghc-8.4.4
+./configure
+sudo make install
+cd /usr/bin/
+sudo ln -s /usr/local/bin/ghc
+
+# Installing stack
+curl -sSL https://get.haskellstack.org/ | sh
+
+# Installing cabal
+# sudo apt-get install cabal-install
+# cabal update
+# cd $HOMEDownloads
+# wget https://www.haskell.org/cabal/release/cabal-2.4.0.1/Cabal-2.4.0.1.tar.gz
+# tar -xf Cabal-2.4.0.1.tar.gz
+# cd Cabal-2.4.0.1
+# cabal install
+
+# Installing agda
+cd $HOME
+mkdir agda-full
+cd agda-full
+sudo apt-get update
+sudo apt-get install zlib1g-dev libncurses5-dev
+git clone git@github.com:agda/agda.git
+cd agda
+git co v2.5.4.1
+stack --stack-yaml stack-8.4.3.yaml build
+
+mkdir $HOME/.cabal/
+cd $HOME/.cabal
+mkdir bin
+cd $HOME/.cabal/bin
+ln -s $HOME/agda-full/agda/.stack-work/install/x86_64-linux/lts-12.0/8.4.3/bin/agda
+ln -s $HOME/agda-full/agda/.stack-work/install/x86_64-linux/lts-12.0/8.4.3/bin/agda-mode
+
+# agda std-library
+cd $HOME/agda-full/
+git clone https://github.com/agda/agda-stdlib.git
+cd agda-stdlib
+git checkout v0.17
+cd $HOME
+mkdir .agda
+cd .agda
+echo "$HOME/agda-full/agda-stdlib/standard-library.agda-lib" >> libraries
+echo "standard-library" >> defaults
+cd $HOME

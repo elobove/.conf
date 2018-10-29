@@ -30,9 +30,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(agda2-highlight-face-groups (quote default-faces))
- '(agda2-program-args
-   (quote
-    ("--include-path=." "--include-path=/home/elilob/.cabal/lib/agda-stdlib-0.13/src")))
+ ;; '(agda2-program-args
+ ;;   (quote
+ ;;    ("--include-path=." "--include-path=/home/elobo/.cabal/lib/agda-stdlib-0.13/src")))
  '(before-save-hook (quote (whitespace-cleanup)))
  '(column-number-mode t)
  '(fci-rule-column 80)
