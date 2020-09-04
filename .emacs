@@ -5,34 +5,15 @@
 ;;;;;;;;;;;;;;;;;;;;;
 
 (require 'package)
-(dolist (source '(("melpa" . "http://melpa.milkbox.net/packages/")))
+(dolist (source '(("melpa" . "http://melpa.org/packages/")))
   (add-to-list 'package-archives source t))
 (package-initialize)
-
-;; Agda
-(load-file (let ((coding-system-for-read 'utf-8))
-		(shell-command-to-string "agda-mode locate")))
-
-;; Require list
-(require 'agda-input)
-(require 'fill-column-indicator)
-(require 'tex)
-(require 'multiple-cursors)
-
 
 ;;;;;;;;;;;;;;;
 ;; Variables ;;
 ;;;;;;;;;;;;;;;
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(agda2-highlight-face-groups (quote default-faces))
- ;; '(agda2-program-args
- ;;   (quote
- ;;    ("--include-path=." "--include-path=/home/elobo/.cabal/lib/agda-stdlib-0.13/src")))
  '(before-save-hook (quote (whitespace-cleanup)))
  '(column-number-mode t)
  '(fci-rule-column 80)
@@ -46,7 +27,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (magit company-ghc ac-haskell-process haskell-mode zenburn-theme markdown-mode multiple-cursors idris-mode fill-column-indicator auctex)))
+    (magit company-ghc ac-haskell-process haskell-mode zenburn-theme markdown-mode multiple-cursors fill-column-indicator auctex)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
@@ -56,11 +37,22 @@
  '(tramp-auto-save-directory "~/.save/"))
 
 
-;; backups
+;; Install any missing package
+(dolist (package package-selected-packages)
+  (unless (package-installed-p package)
+    (package-install package)))
+
+;; Backups
 (setq delete-old-versions t
       kept-new-versions 6
       kept-old-versions 2
       version-control t)
+
+;; Require list
+;; (require 'agda-input)
+(require 'fill-column-indicator)
+(require 'tex)
+(require 'multiple-cursors)
 
 ;;;;;;;;;;;;;;;;;;
 ;; Key bindings ;;
@@ -154,8 +146,7 @@
 ;; general-hook
 (defun general-hook ()
    (fci-mode)
-   (flyspell-mode)
-   (set-input-method "Agda"))
+   (flyspell-mode))
 
 ;; markdown-hook
 (add-hook 'markdown-mode-hook
@@ -187,18 +178,6 @@
 (add-hook 'agda-mode-hook
 	  (lambda ()
 	    (general-hook)))
-
-;; idris-hook
-(add-hook 'idris-mode-hook
-	  (lambda ()
-	    (flyspell-mode)
-	    (set-input-method "Agda")))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 ;;;;;;;;;;;;;;;
 ;; Utilities ;;
