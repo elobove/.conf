@@ -2,18 +2,18 @@
 
 set -e
 
-sudo apt-get install git curl zsh tree python-pip powerline
+sudo apt-get install git curl zsh tree python3-pip powerline
 
 sudo pip install powerline-gitstatus
 
 # oh-myzsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-# latex
-sudo apt-get install texlive-full
+# Installing lsd (better ls)
+sudo apt-get install cargo
+cargo install lsd
 
 # even better ls
-
 wget http://raw.githubusercontent.com/illinoisjackson/even-better-ls/master/ls_colors_generator.py
 chmod 755 ls_colors_generator.py
 cp ls_colors_generator.py ~/.local/bin/ls_colors_generator
@@ -51,21 +51,14 @@ ln -s $HOME/.conf/.emacs
 ln -s $HOME/.conf/.zshrc
 ln -s $HOME/.conf/.gitconfig
 
-# Installing spotify
-cd $HOME
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update
-sudo apt-get install spotify-client
-
 # Installing ghc
 # sudo apt-get install ghc
-wget https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-x86_64-deb9-linux.tar.xz
-cd ghc-8.4.4
-./configure
-sudo make install
-cd /usr/bin/
-sudo ln -s /usr/local/bin/ghc
+# wget https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-x86_64-deb9-linux.tar.xz
+# cd ghc-8.4.4
+# ./configure
+# sudo make install
+# cd /usr/bin/
+# sudo ln -s /usr/local/bin/ghc
 
 # Installing stack
 curl -sSL https://get.haskellstack.org/ | sh
@@ -108,3 +101,6 @@ cd .agda
 echo "$HOME/agda-full/agda-stdlib/standard-library.agda-lib" >> libraries
 echo "standard-library" >> defaults
 cd $HOME
+
+# latex
+sudo apt-get install texlive-full
