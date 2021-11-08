@@ -12,7 +12,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH=$HOME/.cabal/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.cabal/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # export PATH=$HOME/Documents/MATLAB/mosek/8/tools/platform/linux64x86/bin:$PATH
 
 # Some aliases
