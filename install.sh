@@ -2,7 +2,7 @@
 
 set -e
 
-sudo apt-get install git curl zsh tree python3-pip powerline emacs unzip
+sudo apt-get install git curl zsh tree python3-pip powerline emacs unzip lhs2tex
 sudo pip install powerline-gitstatus
 
 # For WSL
