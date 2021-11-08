@@ -9,11 +9,19 @@
   (add-to-list 'package-archives source t))
 (package-initialize)
 
+;; Agda
+(load-file (let ((coding-system-for-read 'utf-8))
+		(shell-command-to-string "agda-mode locate")))
+
 ;;;;;;;;;;;;;;;
 ;; Variables ;;
 ;;;;;;;;;;;;;;;
 
 (custom-set-variables
+ '(agda2-highlight-face-groups (quote default-faces))
+;; '(agda2-program-args
+;;   (quote
+;;    ("--include-path=." "--include-path=/home/elobo/.cabal/lib/agda-stdlib-0.13/src")))
  '(before-save-hook (quote (whitespace-cleanup)))
  '(column-number-mode t)
  '(fci-rule-column 80)
@@ -49,7 +57,7 @@
       version-control t)
 
 ;; Require list
-;; (require 'agda-input)
+(require 'agda-input)
 (require 'fill-column-indicator)
 (require 'tex)
 (require 'multiple-cursors)
@@ -177,7 +185,8 @@
 ;; agda-hook
 (add-hook 'agda-mode-hook
 	  (lambda ()
-	    (general-hook)))
+	    (general-hook)
+	    (set-input-method "Agda")))
 
 ;;;;;;;;;;;;;;;
 ;; Utilities ;;
