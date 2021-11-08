@@ -12,6 +12,11 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 # Installing lsd (better ls)
 sudo apt-get install cargo
 cargo install lsd
+mkdir .local
+mkdir .local/bin
+cd .local/bin
+ln -s $HOME/.cargo/bin/lsd
+cd
 
 # even better ls
 wget http://raw.githubusercontent.com/illinoisjackson/even-better-ls/master/ls_colors_generator.py
