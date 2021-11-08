@@ -2,7 +2,7 @@
 
 set -e
 
-sudo apt-get install git curl zsh tree python3-pip powerline
+sudo apt-get install git curl zsh tree python3-pip powerline emacs unzip
 
 sudo pip install powerline-gitstatus
 
@@ -12,8 +12,7 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 # Installing lsd (better ls)
 sudo apt-get install cargo
 cargo install lsd
-mkdir .local
-mkdir .local/bin
+mkdir -p .local/bin
 cd .local/bin
 ln -s $HOME/.cargo/bin/lsd
 cd
@@ -36,10 +35,12 @@ make ls
 cp ls $HOME/.local/bin/ls-i
 cd ../../
 
-# fonts
+# Fonts
+mkdir -p .local/share/fonts
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v1.2.0/DejaVuSansMono.zip
-mkdir -p $HOME/.local/share/fonts
+# wget https://github.com/ryanoasis/nerd-fonts/releases/download/v1.2.0/DejaVuSansMono.zip
+# mkdir -p $HOME/.local/share/fonts
 cp DejaVuSansMono.zip $HOME/.local/share/fonts/
 cd $HOME/.local/share/fonts
 unzip DejaVuSansMono.zip
