@@ -3,8 +3,10 @@
 set -e
 
 sudo apt-get install git curl zsh tree python3-pip powerline emacs unzip
-
 sudo pip install powerline-gitstatus
+
+# For WSL
+sudo apt-get install terminator
 
 # oh-myzsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -86,21 +88,19 @@ sudo apt-get update
 sudo apt-get install zlib1g-dev libncurses5-dev
 git clone git@github.com:agda/agda.git
 cd agda
-git co v2.5.4.1
-stack --stack-yaml stack-8.4.3.yaml build
+git co v2.6.2
+stack --stack-yaml stack-8.10.5.yaml build
 
-mkdir $HOME/.cabal/
-cd $HOME/.cabal
-mkdir bin
+mkdir -p $HOME/.cabal/bin
 cd $HOME/.cabal/bin
-ln -s $HOME/agda-full/agda/.stack-work/install/x86_64-linux/lts-12.0/8.4.3/bin/agda
-ln -s $HOME/agda-full/agda/.stack-work/install/x86_64-linux/lts-12.0/8.4.3/bin/agda-mode
+ln -s $HOME/agda-full/agda/.stack-work/install/x86_64-linux-tinfo6/551038fd25d597730aabf0e9af25840bd5a93d664c8449f600a28ab2b0931b53/8.10.5/bin/agda 
+ln -s $HOME/agda-full/agda/.stack-work/install/x86_64-linux-tinfo6/551038fd25d597730aabf0e9af25840bd5a93d664c8449f600a28ab2b0931b53/8.10.5/bin/agda-mode
 
 # agda std-library
 cd $HOME/agda-full/
 git clone https://github.com/agda/agda-stdlib.git
 cd agda-stdlib
-git checkout v0.17
+git checkout v1.7
 cd $HOME
 mkdir .agda
 cd .agda
