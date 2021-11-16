@@ -39,17 +39,13 @@ cd ../../
 
 # Fonts
 mkdir -p .local/share/fonts
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
-
+cd .local/share/fonts
 # wget https://github.com/ryanoasis/nerd-fonts/releases/download/v1.2.0/DejaVuSansMono.zip
-# mkdir -p $HOME/.local/share/fonts
-cp DejaVuSansMono.zip $HOME/.local/share/fonts/
-cd $HOME/.local/share/fonts
-unzip DejaVuSansMono.zip
-fc-cache -f .
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+sudo apt-get install unzip
+unzip JetBrainsMono
 # Set font in terminal to something with nerd and powerline in it ;)
-
-cd -
+fc-cache -f .
 
 # Creating symbolic links to conf files
 cd
