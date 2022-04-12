@@ -54,6 +54,7 @@ ln -s $HOME/.conf/.bashrc
 ln -s $HOME/.conf/.emacs
 ln -s $HOME/.conf/.zshrc
 ln -s $HOME/.conf/.gitconfig
+ln -s $HOME/.conf/.config/powerline .config/powerline
 
 # Installing ghc
 # sudo apt-get install ghc
