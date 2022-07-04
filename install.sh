@@ -6,7 +6,11 @@ sudo apt-get install git curl zsh tree python3-pip powerline emacs unzip lhs2tex
 sudo pip install powerline-gitstatus
 
 # For WSL
+sudo apt-get install dbus-x11
+sudo systemd-machine-id-setup
 sudo apt-get install terminator
+# test terminator: server should be running (?)
+DISPLAY=:0 terminator &
 
 # oh-myzsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
