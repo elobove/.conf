@@ -17,13 +17,13 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 
 # Installing lsd (better ls)
 sudo apt-get install cargo
-cargo install lsd
+cargo install --version 0.22.0 lsd
 mkdir -p .local/bin
 cd .local/bin
 ln -s $HOME/.cargo/bin/lsd
 cd
 
-# even better ls
+# even better ls (NOT IN USE)
 wget http://raw.githubusercontent.com/illinoisjackson/even-better-ls/master/ls_colors_generator.py
 chmod 755 ls_colors_generator.py
 cp ls_colors_generator.py ~/.local/bin/ls_colors_generator
@@ -94,7 +94,7 @@ stack --stack-yaml stack-8.10.5.yaml build
 
 mkdir -p $HOME/.cabal/bin
 cd $HOME/.cabal/bin
-ln -s $HOME/agda-full/agda/.stack-work/install/x86_64-linux-tinfo6/551038fd25d597730aabf0e9af25840bd5a93d664c8449f600a28ab2b0931b53/8.10.5/bin/agda 
+ln -s $HOME/agda-full/agda/.stack-work/install/x86_64-linux-tinfo6/551038fd25d597730aabf0e9af25840bd5a93d664c8449f600a28ab2b0931b53/8.10.5/bin/agda
 ln -s $HOME/agda-full/agda/.stack-work/install/x86_64-linux-tinfo6/551038fd25d597730aabf0e9af25840bd5a93d664c8449f600a28ab2b0931b53/8.10.5/bin/agda-mode
 
 # agda std-library
